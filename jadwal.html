@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jadwal | XII IPA 1</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+        <div class="logo-text">
+          <span class="logo-title" id="siteName">XII IPA 1</span>
+          <span class="logo-sub">Website Kelas Resmi</span>
+        </div>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Beranda</a>
+        <a href="pengumuman.html" class="nav-link"><i class="fas fa-bullhorn"></i> Pengumuman</a>
+        <a href="chat.html" class="nav-link"><i class="fas fa-comments"></i> Chat</a>
+        <a href="anggota.html" class="nav-link"><i class="fas fa-users"></i> Anggota</a>
+        <a href="jadwal.html" class="nav-link active"><i class="fas fa-calendar"></i> Jadwal</a>
+      </div>
+      <div class="nav-auth" id="navAuth"></div>
+      <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="icon-box" style="background:linear-gradient(135deg,#8b5cf6,#7c3aed)"><i class="fas fa-calendar-alt"></i></div>
+    <h1>Jadwal Pelajaran</h1>
+    <p>Jadwal mingguan kelas XII IPA 1</p>
+  </div>
+
+  <div class="container" style="padding-bottom:60px;max-width:700px;">
+    <div class="flex gap-2" style="justify-content:center;flex-wrap:wrap;margin-bottom:24px;" id="dayBar"></div>
+    <div id="scheduleList"></div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-bottom" style="border:none;">
+      <span>© <span id="year"></span> XII IPA 1</span>
+      <span class="powered" id="poweredBy">Powered by Arzz</span>
+    </div>
+  </footer>
+
+  <script src="js/db.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    renderNavbar();
+    loadSiteSettings();
+
+    var days = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat'];
+    var activeDay = 'Senin';
+    var schedule = DB.getSchedule();
+
+    document.getElementById('dayBar').innerHTML = days.map(function (d) {
+      return '<button class="btn btn-sm ' + (d === activeDay ? 'btn-primary' : '') + '" style="' + (d !== activeDay ? 'background:#f1f5f9;color:#475569;' : '') + '" data-day="' + d + '" onclick="setDay(\'' + d + '\')">' + d + '</button>';
+    }).join('');
+
+    function setDay(d) {
+      activeDay = d;
+      document.querySelectorAll('#dayBar button').forEach(function (b) {
+        var isActive = b.getAttribute('data-day') === d;
+        b.className = 'btn btn-sm ' + (isActive ? 'btn-primary' : '');
+        b.style = isActive ? '' : 'background:#f1f5f9;color:#475569;';
+      });
+      render();
+    }
+
+    function render() {
+      var list = schedule.filter(function (s) { return s.day === activeDay; });
+      var el = document.getElementById('scheduleList');
+      if (!list.length) {
+        el.innerHTML = '<div class="empty-state">Tidak ada jadwal</div>';
+        return;
+      }
+      el.innerHTML = list.map(function (s) {
+        var times = s.time.split(' - ');
+        return (
+          '<div class="card" style="display:flex;align-items:center;gap:16px;margin-bottom:10px;padding:14px 18px;">' +
+            '<div style="min-width:80px;text-align:center;background:#f5f3ff;color:#6d28d9;border-radius:10px;padding:8px 6px;font-size:12px;font-weight:600;">' +
+              '<div>' + times[0] + '</div><div style="font-size:10px;opacity:0.6;">s/d</div><div>' + times[1] + '</div>' +
+            '</div>' +
+            '<div style="flex:1;">' +
+              '<div style="font-weight:700;font-size:15px;">' + escapeHtml(s.subject) + '</div>' +
+              '<div style="font-size:13px;color:var(--text-muted);">' + escapeHtml(s.teacher) + '</div>' +
+            '</div>' +
+            (s.room ? '<span class="badge badge-siswa">' + escapeHtml(s.room) + '</span>' : '') +
+          '</div>'
+        );
+      }).join('');
+    }
+
+    render();
+  </script>
+</body>
+</html>
