@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XII IPA 1 | Website Kelas</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+        <div class="logo-text">
+          <span class="logo-title" id="siteName">XII IPA 1</span>
+          <span class="logo-sub">Website Kelas Resmi</span>
+        </div>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Beranda</a>
+        <a href="pengumuman.html" class="nav-link"><i class="fas fa-bullhorn"></i> Pengumuman</a>
+        <a href="anggota.html" class="nav-link"><i class="fas fa-users"></i> Anggota</a>
+        <a href="jadwal.html" class="nav-link"><i class="fas fa-calendar"></i> Jadwal</a>
+        <a href="chat.html" class="nav-link"><i class="fas fa-comments"></i> Chat</a>
+        <a href="galeri.html" class="nav-link"><i class="fas fa-images"></i> Galeri</a>
+      </div>
+      <div class="nav-auth" id="navAuth">
+        <!-- diisi JS -->
+      </div>
+      <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="heroSection">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-badge"><i class="fas fa-sparkles"></i> Website Kelas Resmi</div>
+      <h1 id="heroTitle">Selamat Datang di<br><span>XII IPA 1</span></h1>
+      <p id="heroDesc">Platform digital kelas kami untuk berbagi informasi, koordinasi kegiatan, dan mempererat kebersamaan.</p>
+      <div class="hero-actions">
+        <a href="pengumuman.html" class="btn btn-primary">Lihat Pengumuman <i class="fas fa-arrow-right"></i></a>
+        <a href="chat.html" class="btn btn-outline">Chat Kelas</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats">
+    <div class="stat-item">
+      <i class="fas fa-users"></i>
+      <h3 id="statMembers">32+</h3>
+      <p>Anggota</p>
+    </div>
+    <div class="stat-item">
+      <i class="fas fa-book"></i>
+      <h3>12</h3>
+      <p>Mata Pelajaran</p>
+    </div>
+    <div class="stat-item">
+      <i class="fas fa-trophy"></i>
+      <h3>15+</h3>
+      <p>Prestasi</p>
+    </div>
+    <div class="stat-item">
+      <i class="fas fa-heart"></i>
+      <h3>20+</h3>
+      <p>Kegiatan</p>
+    </div>
+  </section>
+
+  <!-- Quick Access -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Akses Cepat</h2>
+        <p>Fitur utama website kelas</p>
+      </div>
+      <div class="cards-grid">
+        <a href="pengumuman.html" class="card card-hover">
+          <div class="card-icon blue"><i class="fas fa-bullhorn"></i></div>
+          <h3>Pengumuman</h3>
+          <p>Info terbaru seputar tugas, kegiatan, dan pengumuman penting.</p>
+        </a>
+        <a href="chat.html" class="card card-hover">
+          <div class="card-icon green"><i class="fas fa-comments"></i></div>
+          <h3>Chat Live</h3>
+          <p>Chat publik, inbox pribadi, dan private ke developer.</p>
+        </a>
+        <a href="anggota.html" class="card card-hover">
+          <div class="card-icon purple"><i class="fas fa-users"></i></div>
+          <h3>Anggota Kelas</h3>
+          <p>Daftar lengkap anggota & struktur organisasi kelas.</p>
+        </a>
+        <a href="jadwal.html" class="card card-hover">
+          <div class="card-icon orange"><i class="fas fa-calendar-alt"></i></div>
+          <h3>Jadwal</h3>
+          <p>Jadwal pelajaran mingguan yang selalu update.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Announcements Preview -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Pengumuman Terbaru</h2>
+        <a href="pengumuman.html" class="link">Lihat semua →</a>
+      </div>
+      <div id="homeAnnouncements" class="announcements-list">
+        <!-- diisi JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo" style="margin-bottom:12px">
+          <div class="logo-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="logo-text">
+            <span class="logo-title" id="footerSiteName">XII IPA 1</span>
+            <span class="logo-sub">Website Kelas Resmi</span>
+          </div>
+        </div>
+        <p class="footer-desc" id="footerDesc">Platform digital resmi kelas untuk berbagi informasi dan memperkuat kebersamaan.</p>
+      </div>
+      <div>
+        <h4>Navigasi</h4>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="pengumuman.html">Pengumuman</a></li>
+          <li><a href="chat.html">Chat</a></li>
+          <li><a href="anggota.html">Anggota</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontak</h4>
+        <ul>
+          <li id="footerEmail">Email: xiiipa1@sekolah.sch.id</li>
+          <li id="footerWali">Wali Kelas: Bu Sari Wulandari, S.Pd</li>
+          <li id="footerKetua">Ketua Kelas: Budi Santoso</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> <span id="footerCopyName">XII IPA 1</span>. All rights reserved.</span>
+      <span class="powered" id="poweredBy">Powered by Arzz</span>
+    </div>
+  </footer>
+
+  <script src="js/db.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Load home data
+    document.addEventListener('DOMContentLoaded', () => {
+      renderNavbar();
+      loadSiteSettings();
+      renderHomeAnnouncements();
+    });
+  </script>
+</body>
+</html>
